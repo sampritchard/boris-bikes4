@@ -1,5 +1,5 @@
 require "rspec"
-require "dockingstation.rb"
+require "borisbikes.rb"
 
 describe DockingStation do
 end
