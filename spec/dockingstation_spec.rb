@@ -8,7 +8,6 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
-  it "will respond to dock" do
     it { is_expected.to respond_to :dock_bike}
-  end
+
 end
