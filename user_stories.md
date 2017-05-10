@@ -5,3 +5,4 @@
 | Person      |  |
 | Bike     | working? |  
 | Docking Station | release_bike?    |  
+| Docking Station | bike_docked? |
