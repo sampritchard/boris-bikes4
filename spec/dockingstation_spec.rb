@@ -20,9 +20,24 @@ end
   end
 
   it "releases working bikes" do
-    #bike = subject.release_bike
     bike = Bike.new
-    expect(bike).to be_working
+    subject.dock_bike(bike)
+    expect(subject.release_bike).to be_working
+  end
+
+  it "won't release a broken bike" do
+    bike = Bike.new
+    bike.report_broken
+    subject.dock_bike(bike)
+    expect {subject.release_bike}.to raise_error 'All bikes are broken!!!'
+  end
+
+  it "will release a working bike if broken bikes in the docking station" do
+      subject.dock_bike(Bike.new)
+      broken_bike = Bike.new
+      broken_bike.report_broken
+      subject.dock_bike(broken_bike)
+      expect(subject.release_bike).to be_working
   end
 
   it { is_expected.to respond_to(:dock_bike).with(1).argument}
